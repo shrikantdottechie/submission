@@ -96,7 +96,7 @@ console.log(`The word "${word}" ${ozgur.includes(word) ? 'is' : 'is not'} in the
 const joshHadALittleLambOopsCow = "Josh lives in a farm. Josh was overwhelmed with coding. Josh is stressed out. Josh fed the chickens this morning. He watered his plants. He took his cow Betsy on a walk. Josh went home without Betsy. Josh went to bed that night, and realized he went home alone."
 
 const searchTerm = 'cow';
-const indexOfFirst = poshHadALittleLambOopsCow.indexOf(searchTerm);
+const indexOfFirst = joshHadALittleLambOopsCow.indexOf(searchTerm);
 
 console.log(`The index of the first "${searchTerm}" from the beginning is ${indexOfFirst}`);
 
@@ -142,7 +142,7 @@ for (vision = 0; vision < 20 ; vision++){
 
 // But wait! Lisa said, while Teo is spinning 20 times. Let's make him say "I'm sorry". Print I'm sorry 20 times using a WHILE loop.
 
-let vision = 0;
+vision = 0;
 while (vision < 20){
   console.log(`I'm sorry`);
   vision++;
@@ -187,7 +187,7 @@ for (const element of tia) {
   const perscholas = ['Amira', 'Arely', 'Jonathan']
   perscholas.forEach(element => {
     const prefix = "PS";
-    console.log(`${prefix}+element`)});
+    console.log(`${prefix}${element}`)});
 
 ////////////////////////////////////////////////////////////////
 // Arrays:
@@ -228,7 +228,7 @@ shoppingList.forEach(element => {
 //3.  Use the force, or in this case the reverse method to help Yoda make some sense with his motivational talk to the young Jedi interns.*/
 
 var yoda = ["try", "no", "is", "there", "not", "do", "or", "do"];
-console.log(yoda);
+//console.log(yoda);
 const reversed = yoda.reverse();
 console.log('reversed:', reversed);
 
@@ -237,13 +237,17 @@ console.log('reversed:', reversed);
 
 var waitList = [ "Chance the Rapper", "Khalid", "Tay-Tay", "Barry Manilow", "Piko Taro" ];
 
-waitList.forEach(nowServing => console.log(`${nowServing}`));
+waitList.forEach(nowServing => console.log(nowServing));
 
 //5. Help Nike sell more overpriced sneakers by changing their slogan from an array into a string. Convert the shoe array and assign it to a variable named `shoeString`. Console.log this new variable.
 
 var shoe = ["just", "do", "it"];
 let shoeString = ' ';
-shoe.forEach(element => {console.log(shoeString += element););
+shoe.forEach(element => {
+  (shoeString += element);
+});
+
+console.log(shoeString);
 
 // ===== SPREAD OPERATOR ===== 
 
@@ -281,31 +285,42 @@ const maxOfThreeNumbers = (a, b, c) => {
   }else {
     return c;
   }
-}
+};
 
 console.log(`Max of 3 given numbers is ${maxOfThreeNumbers(25,30,50)}`);
 
 //3. Write a function isCharacterAVowel that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise
 const isCharacterAVowel = (str1) => {
-  str1 === 'a' || str1 === 'e' || str1 ==='i' || str1 === 'o' || str1 === 'u' ? true : false;
-}
+  let result;
+  result = (str1 === 'a' || str1 === 'e' || str1 ==='i' || str1 === 'o' || str1 === 'u') ? true : false;
+  console.log(result);
+};
 
 console.log(isCharacterAVowel('o'));
+
 //4. Write a function charCount that takes a string and returns the length of the string.
-const charCount = (str1) => {
-  return str1.length;
-}
+const charCount = ((str1) => {
+  console.log(str1.length);
+});
 console.log(charCount("It is really nice experience"));
 
 //5. Write a function vowelCount that takes a String and returns the number of vowels in the String. Add a check for the string to be of 10 or less characters.
-const vowelCount = (str1) => {
-  let countVowels = 0;
-  if (str1.length <= 10){
-    for (let i = 0; i < str1.length ; i++ ){
-      str1[i] === 'a' || str1[i] === 'e' || str1[i] ==='i' || str1[i] === 'o' || str1[i] === 'u' ? count++ : count;
-    }
+// program to count the number of vowels in a string
 
-  }
+function countVowel(str) { 
+
+  // find the count of vowels
+  const count = str.match(/[aeiou]/gi).length;
+
+  // return number of vowels
   return count;
 }
-console.log("Vowel Count is: " + vowelCount("This is obvious for the onion recipes"));
+
+// take input
+const string = "obvious";
+
+if (string.length <= 10){
+const result = countVowel(string);
+
+console.log(result);
+}
